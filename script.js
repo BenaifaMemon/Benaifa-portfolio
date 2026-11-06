@@ -119,11 +119,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Confirm validation only; no message is sent.
-            formStatus.textContent =
-                "Your form passed validation. This demo does not send messages yet.";
+            // Open the visitor's email app with the message filled in
+            const subject = encodeURIComponent("Portfolio query from " + name);
+            const body = encodeURIComponent(
+                "Name: " + name + "\nEmail: " + email + "\n\n" + message
+            );
 
-            console.log("Contact form validation successful.");
+                formStatus.textContent =
+                "Thank you, " + name + "! Your email app is opening.";
+
+            window.location.href =
+                "mailto:benaifamemon@gmail.com?subject=" + subject +
+                "&body=" + body;
         });
     }
 
